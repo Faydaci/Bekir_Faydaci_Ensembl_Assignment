@@ -1,0 +1,30 @@
+To test the tool, I would manually test each function during the initial building process. Examples of this are:
+    - Checking whether the number of fetched transcripts matches the number of transcripts found in the JSON file.
+    - Checking whether the amino acid count for the first sequence index matches with the count of the first amino acids found in the JSON file.
+    - Checking whether the get_count_data function gets an out of index error when we supply the total length of largest transcript + 1 as a position.
+    - Checking whether the fraction of amino acids over a certain range reflects the data from the database
+    - Checking whether the sum of (mean) count equals the number of transcripts.
+
+Since it's highly inefficient to do this manually for a large subset, I would apply automated testing by e.g. using the unittest module from the Python standard library.
+I have given an example test case in the tests.py file attached, using the last example mentioned above.
+
+In general, the pseudocode would look something like this:
+
+    import unittest
+
+    class Test(unittest.TestCase):
+
+        # Test a certain function:
+        def test_my_function(self):
+            # Compute the logic:
+            computed_value = 1 + 2
+            expected_value = 3
+
+            # Assert if computed logic == expected value:
+            self.assertEqual(computed_value, expected_value, "computed =! expected")
+
+        def test_another_function(self):
+            # Test another function
+
+
+Using the pseudocode above, I would automate i.a. the different examples given above, after initial manual testing of a small subset.
